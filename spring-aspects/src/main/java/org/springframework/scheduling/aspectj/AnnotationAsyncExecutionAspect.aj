@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *      https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,7 +19,7 @@ package org.springframework.scheduling.aspectj;
 import java.lang.reflect.Method;
 import java.util.concurrent.Future;
 
-import org.springframework.core.annotation.AnnotationUtils;
+import org.springframework.core.annotation.AnnotatedElementUtils;
 import org.springframework.scheduling.annotation.Async;
 
 /**
@@ -68,9 +68,9 @@ public aspect AnnotationAsyncExecutionAspect extends AbstractAsyncExecutionAspec
 	protected String getExecutorQualifier(Method method) {
 		// Maintainer's note: changes made here should also be made in
 		// AnnotationAsyncExecutionInterceptor#getExecutorQualifier
-		Async async = AnnotationUtils.findAnnotation(method, Async.class);
+		Async async = AnnotatedElementUtils.findMergedAnnotation(method, Async.class);
 		if (async == null) {
-			async = AnnotationUtils.findAnnotation(method.getDeclaringClass(), Async.class);
+			async = AnnotatedElementUtils.findMergedAnnotation(method.getDeclaringClass(), Async.class);
 		}
 		return (async != null ? async.value() : null);
 	}

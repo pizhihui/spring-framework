@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *      https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -17,14 +17,12 @@
 package org.springframework.web.bind.annotation;
 
 import java.lang.annotation.Documented;
+import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 import org.springframework.core.annotation.AliasFor;
-
-import static java.lang.annotation.ElementType.METHOD;
-import static java.lang.annotation.RetentionPolicy.RUNTIME;
-import static org.springframework.web.bind.annotation.RequestMethod.PATCH;
 
 /**
  * Annotation for mapping HTTP {@code PATCH} requests onto specific handler
@@ -41,10 +39,10 @@ import static org.springframework.web.bind.annotation.RequestMethod.PATCH;
  * @see DeleteMapping
  * @see RequestMapping
  */
-@Target(METHOD)
-@Retention(RUNTIME)
+@Target(ElementType.METHOD)
+@Retention(RetentionPolicy.RUNTIME)
 @Documented
-@RequestMapping(method = PATCH)
+@RequestMapping(method = RequestMethod.PATCH)
 public @interface PatchMapping {
 
 	/**

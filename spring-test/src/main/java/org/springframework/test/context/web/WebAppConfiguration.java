@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *      https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -47,19 +47,17 @@ import java.lang.annotation.Target;
  * @see org.springframework.test.context.ContextConfiguration
  * @see ServletTestExecutionListener
  */
+@Target(ElementType.TYPE)
+@Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Inherited
-@Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.TYPE)
 public @interface WebAppConfiguration {
 
 	/**
 	 * The resource path to the root directory of the web application.
-	 *
 	 * <p>A path that does not include a Spring resource prefix (e.g., {@code classpath:},
 	 * {@code file:}, etc.) will be interpreted as a file system resource, and a
 	 * path should not end with a slash.
-	 *
 	 * <p>Defaults to {@code "src/main/webapp"} as a file system resource. Note
 	 * that this is the standard directory for the root of a web application in
 	 * a project that follows the standard Maven project layout for a WAR.
